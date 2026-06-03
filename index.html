@@ -30,14 +30,30 @@
           realBotpress = Object.create(val);
           Object.defineProperty(realBotpress, 'init', {
             value: function (options) {
-              if (options && options.configuration) {
-                options.configuration.color = "#0F3B3D";
-                options.configuration.botName = "Bitzsol Assistant";
-                options.configuration.avatarUrl = "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
-                options.configuration.botAvatar = "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
-                options.configuration.botAvatarUrl = "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
-              }
-              val.init.call(val, options);
+              fetch("http://localhost:3000/api/company/branding?id=cmpuvkvgs0000wkj1846j5mqo")
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                  if (options && options.configuration) {
+                    options.configuration.color = data.botColor || "#0F3B3D";
+                    options.configuration.botName = data.name ? (data.name + " Assistant") : "Bitzsol Assistant";
+                    var logo = data.logo || "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
+                    options.configuration.avatarUrl = logo;
+                    options.configuration.botAvatar = logo;
+                    options.configuration.botAvatarUrl = logo;
+                  }
+                  val.init.call(val, options);
+                })
+                .catch(function(err) {
+                  if (options && options.configuration) {
+                    options.configuration.color = "#0F3B3D";
+                    options.configuration.botName = "Bitzsol Assistant";
+                    var logo = "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
+                    options.configuration.avatarUrl = logo;
+                    options.configuration.botAvatar = logo;
+                    options.configuration.botAvatarUrl = logo;
+                  }
+                  val.init.call(val, options);
+                });
             },
             writable: true,
             configurable: true,
