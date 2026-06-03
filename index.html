@@ -30,9 +30,9 @@
           realBotpress = Object.create(val);
           Object.defineProperty(realBotpress, 'init', {
             value: function (options) {
-              fetch("http://localhost:3000/api/company/branding?id=cmpuvkvgs0000wkj1846j5mqo")
-                .then(function(res) { return res.json(); })
-                .then(function(data) {
+              fetch("https://warranty-care-portal.vercel.app/api/company/branding?id=cmpuvkvgs0000wkj1846j5mqo")
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
                   if (options && options.configuration) {
                     options.configuration.color = data.botColor || "#0F3B3D";
                     options.configuration.botName = data.name ? (data.name + " Assistant") : "Bitzsol Assistant";
@@ -43,7 +43,7 @@
                   }
                   val.init.call(val, options);
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                   if (options && options.configuration) {
                     options.configuration.color = "#0F3B3D";
                     options.configuration.botName = "Bitzsol Assistant";
