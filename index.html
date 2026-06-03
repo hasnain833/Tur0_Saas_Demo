@@ -1,16 +1,88 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elite Rides | Premium Car Rental · Black & White</title>
-    <meta name="description" content="Experience the world's most exclusive fleet on-demand. From performance supercars to luxury SUVs, book your next journey in seconds with Elite Rides.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
-  </head>
-  <body class="text-black selection:bg-black selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bitzsol Care | Homeowner Support Portal</title>
+  <meta name="description" content="Chat with Bitzsol Assistant for warranty, service, and maintenance inquiries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Outfit:wght@400;700;900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="text-black selection:bg-black selection:text-white">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+<script>
+  (function () {
+    var realBotpress = null;
+    Object.defineProperty(window, 'botpress', {
+      get: function () {
+        return realBotpress;
+      },
+      set: function (val) {
+        if (val && val.init) {
+          realBotpress = Object.create(val);
+          Object.defineProperty(realBotpress, 'init', {
+            value: function (options) {
+              if (options && options.configuration) {
+                options.configuration.color = "#0F3B3D";
+                options.configuration.botName = "Bitzsol Assistant";
+                options.configuration.avatarUrl = "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
+                options.configuration.botAvatar = "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
+                options.configuration.botAvatarUrl = "https://hhkrwzwtlunvxzmhfbkz.supabase.co/storage/v1/object/public/company_logos/cmpuvkvgs0000wkj1846j5mqo/1780388784327_download5.jpg";
+              }
+              val.init.call(val, options);
+            },
+            writable: true,
+            configurable: true,
+            enumerable: true
+          });
+        } else {
+          realBotpress = val;
+        }
+      },
+      configurable: true,
+      enumerable: true
+    });
+  })();
+</script>
+<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/05/22/09/20260522095559-NVR5MP3E.js" defer></script>
+<script>
+  window.addEventListener('load', function () {
+    var checkBotpress = setInterval(function () {
+      var bp = window.botpressWebChat || window.botpressWebchat || window.botpress;
+      if (bp) {
+
+        clearInterval(checkBotpress);
+        bp.on("webchat:initialized", function () {
+          if (bp.open) bp.open();
+          if (bp.updateUser) {
+            try {
+              bp.updateUser({
+                data: {
+                  companyId: "cmpuvkvgs0000wkj1846j5mqo",
+                  role: "homeowner"
+                },
+                tags: {
+                  companyId: "cmpuvkvgs0000wkj1846j5mqo",
+                  role: "homeowner"
+                }
+              });
+            } catch (err) {
+              console.error("Failed to update user in Botpress:", err);
+            }
+          }
+        });
+      }
+    }, 300);
+  });
+</script>
+
 </html>
