@@ -22,13 +22,13 @@ export default function App() {
         {!isBotLoaded && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-white z-20 gap-4">
             <div className="w-10 h-10 border-4 border-slate-200 border-t-[#0F3B3D] rounded-full animate-spin"></div>
-            <p className="text-sm font-medium text-slate-500 animate-pulse">Loading Bitzsol Care Bot...</p>
+            <p className="text-sm font-medium text-slate-500 animate-pulse">Loading Bitzsol Care Bot.......</p>
           </div>
         )}
-        
+
         {/* Target element for Botpress */}
-        <div 
-          id="bp-embedded-webchat" 
+        <div
+          id="bp-embedded-webchat"
           className="w-full h-full transition-all duration-300"
           style={{ width: '100%', height: '100%' }}
         />
