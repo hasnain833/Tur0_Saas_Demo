@@ -37,50 +37,20 @@ export default function App() {
       </div>
 
       {/* Main Content Card */}
-      <div className="w-full max-w-xl bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-10 shadow-[0_20px_50px_rgba(8,11,40,0.06)] border border-slate-100/80 text-center relative z-10">
+      <div className="w-full max-w-2xl bg-white/80 backdrop-blur-md rounded-3xl shadow-[0_20px_50px_rgba(8,11,40,0.08)] border border-slate-100/80 text-center relative z-10 overflow-hidden">
 
-        {/* Headline */}
-        <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 font-outfit">
-          How can we help <span className="text-gradient bg-clip-text">you today?</span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-slate-600 text-base md:text-lg max-w-md mx-auto mb-8 leading-relaxed">
-          Welcome to the Aiforhomebuilder Homeowner Portal. Chat with our intelligent assistant to manage warranty claims, log service requests, or troubleshoot household items.
-        </p>
-
-        {/* Feature quick links grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 text-left">
-          <div className="p-3.5 rounded-2xl bg-slate-50/50 border border-slate-100 hover:border-indigo-100 hover:bg-indigo-50/20 transition-all duration-300 group">
-            <span className="text-xl mb-1.5 block">📄</span>
-            <h3 className="font-semibold text-sm text-slate-800 mb-0.5 group-hover:text-[#583CFA]">File Claims</h3>
-            <p className="text-xs text-slate-500 leading-snug">Quick submissions for warranty care.</p>
-          </div>
-          <div className="p-3.5 rounded-2xl bg-slate-50/50 border border-slate-100 hover:border-indigo-100 hover:bg-indigo-50/20 transition-all duration-300 group">
-            <span className="text-xl mb-1.5 block">🛠️</span>
-            <h3 className="font-semibold text-sm text-slate-800 mb-0.5 group-hover:text-[#583CFA]">Maintenance</h3>
-            <p className="text-xs text-slate-500 leading-snug">Guides and diagnostic checklists.</p>
-          </div>
-          <div className="p-3.5 rounded-2xl bg-slate-50/50 border border-slate-100 hover:border-indigo-100 hover:bg-indigo-50/20 transition-all duration-300 group">
-            <span className="text-xl mb-1.5 block">⚡</span>
-            <h3 className="font-semibold text-sm text-slate-800 mb-0.5 group-hover:text-[#583CFA]">Service Hub</h3>
-            <p className="text-xs text-slate-500 leading-snug">Direct contact for certified repairs.</p>
-          </div>
+        {/* Embedded fullscreen widget */}
+        <div className="w-full" style={{ height: '600px' }}>
+          <iframe
+            src="https://ai4home-portal.vercel.app/?company=cmpuvkvgs0000wkj1846j5mqo&mode=fullscreen"
+            style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+            title="AI Chat Assistant"
+            allow="microphone"
+          />
         </div>
       </div>
 
-      {/* Floating Corner Arrow pointing directly to the Botpress chat widget launcher button */}
-      <div className="absolute bottom-28 right-8 md:right-24 flex flex-col items-end gap-2 pointer-events-none select-none max-w-[240px] z-20">
-        <div className="bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-2xl shadow-xl border border-slate-800 text-center animate-bounce">
-          Chat assistant is right here! 👇
-        </div>
-        <div className="mr-8">
-          <svg className="w-14 h-14 text-[#583CFA] animate-draw-attention" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 12C32 12 56 24 60 60" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeDasharray="6 6" />
-            <path d="M44 56L60 60L56 44" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-      </div>
+
     </div>
   );
 }
