@@ -42,7 +42,7 @@ export default function App() {
         {/* Embedded fullscreen widget */}
         <div className="w-full" style={{ height: '600px' }}>
           <iframe
-            src="https://ai4home-portal.vercel.app/widget/cmpuvkvgs0000wkj1846j5mqo?mode=fullscreen"
+            src="https://app.ai4hb.com/widget/cmpuvkvgs0000wkj1846j5mqo?mode=fullscreen"
             style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
             title="AI Chat Assistant"
             allow="microphone"
